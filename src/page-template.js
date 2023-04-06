@@ -1,8 +1,9 @@
 const engineer = require("../lib/engineer");
 const manager = require("../lib/manager");
+const intern = require("../lib/intern");
 
 const generateTeam = (team) => {
-
+//This generates the Intern card in the html
 const generateIntern = (intern) => {
     return `
     <div class="card" style="width: 18rem;">
@@ -15,7 +16,7 @@ const generateIntern = (intern) => {
       <li class="list-group-item">School:${intern.getSchool()}</li>
     </div>`;
 };
-
+//This generates the Manager card in the html
 const generateManager = (manager) => {
     return `
     <div class="card" style="width: 18rem;">
@@ -28,7 +29,7 @@ const generateManager = (manager) => {
       <li class="list-group-item">School:${manager.getOfficeNum()}</li>
     </div>`;
 };
-
+//This generates the Engineering card in the html
 const generateEngineer = (engineer) => {
     return `
     <div class="card" style="width: 18rem;">
@@ -44,7 +45,7 @@ const generateEngineer = (engineer) => {
 
 
 }
-
+//This is the base of the html template, with this I was able to add a header as well as add the generateTeam for where I want the team card to be.
 module.exports = (team) => {
     return`
    <html lang="en">

@@ -1,3 +1,5 @@
+
+//All of my requires
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateTeam = require("./src/page-template.js");
@@ -5,7 +7,7 @@ const generateTeam = require("./src/page-template.js");
 const engineer = require("./lib/engineer.js")
 const intern = require("./lib/intern.js")
 const manager = require("./lib/manager.js")
-
+// This creates a empty array for the Member data below that you will create with the iquirer prompt.
 const newStaffMemberData = [];
 
 const questions = async () => {
@@ -32,7 +34,7 @@ const questions = async () => {
       message: 'What is your email?',
     },
   ]);
-
+//This if statment allows to create the manager when selected in the prompt above as well as the engineer and intern.
   if (answers.position === "manager") {
     const managerAns = await inquirer.prompt([
       {
@@ -79,7 +81,7 @@ const questions = async () => {
     );
     newStaffMemberData.push(newIntern);
   }
-
+//This allows you to add more team members or finish creating your team.
   async function promptQuestions() {
     const addMemberAns = await inquirer.prompt([
       {
@@ -97,7 +99,7 @@ const questions = async () => {
 
 
   promptQuestions();
-
+//This will console log each time you choose to write a new team memeber as well as write to a index.html to our page-template
   function createTeam() {
     console.log("new team member", newStaffMemberData)
     fs.writeFileSync(
